@@ -60,7 +60,7 @@
   "info": {
     "title": "Insured Settlement",
     "description": "Settlement calculation for insured customers",
-    "version": "1",
+    "version": "1.0.0",
     "contact": {}
   },
   "tags": [],
@@ -78,7 +78,7 @@
           "identificationNumber": {
             "type": "string",
             "description": "Customer identification number",
-            "example": "79000001"
+            "example": "79000003"
           },
           "insuredValue": {
             "type": "number",
@@ -128,14 +128,14 @@
           "identificationNumber": {
             "type": "string",
             "description": "Customer identification number",
-            "example": "79000001"
+            "example": "79000003"
           },
           "insuredValue": {
             "type": "number",
             "description": "Base value for insurance calculation",
             "example": 1000000
           },
-          "settlement": {
+          "settlements": {
             "description": "List of settlements with protection and premium details",
             "type": "array",
             "items": {
@@ -152,7 +152,7 @@
           "identificationType",
           "identificationNumber",
           "insuredValue",
-          "settlement",
+          "settlements",
           "totalValue"
         ]
       }

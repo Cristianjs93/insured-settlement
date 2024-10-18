@@ -12,7 +12,7 @@ export class SettlementReq {
 
   @ApiProperty({
     description: 'Customer identification number',
-    example: '79000001',
+    example: '79000003',
   })
   @IsString()
   @IsNotEmpty()
@@ -32,7 +32,7 @@ export class SettlementRes extends SettlementReq {
     description: 'List of settlements with protection and premium details',
     type: () => [SettlementDetail],
   })
-  settlement: SettlementDetail[];
+  settlements: SettlementDetail[];
 
   @ApiProperty({
     description: 'Insurance total value',

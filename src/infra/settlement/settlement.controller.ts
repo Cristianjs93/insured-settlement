@@ -1,4 +1,10 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  HttpStatus,
+  InternalServerErrorException,
+  Post,
+} from '@nestjs/common';
 import { SettlementService } from './settlement.service';
 import { SettlementReq, SettlementRes } from 'models/Settlement';
 import { ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
@@ -19,6 +25,13 @@ export class SettlementController {
   async calculateSettlement(
     @Body() body: SettlementReq,
   ): Promise<SettlementRes> {
-    return this.settlementService.calculateSettlement(body);
+    try {
+      return await this.settlementService.calculateSettlement(body);
+    } catch (error) {
+      throw new InternalServerErrorException({
+        status: HttpStatus.INTERNAL_SERVER_ERROR,
+        message: error.message,
+      });
+    }
   }
 }

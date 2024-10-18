@@ -33,6 +33,10 @@ CREATE UNIQUE INDEX "Protections_name_key" ON "Protections"("name");
 
 ALTER TABLE "Premium" ADD CONSTRAINT "Premium_protectionId_fkey" FOREIGN KEY ("protectionId") REFERENCES "Protections"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
+CREATE INDEX "Insured_identificationType_identificationNumber_idx" ON "Insured"("identificationType", "identificationNumber");
+
+CREATE INDEX "Premium_minAge_maxAge_idx" ON "Premium"("minAge", "maxAge");
+
 INSERT INTO "Insured"("identificationType","identificationNumber","lastname","name","gender","birthDate")
 VALUES
     (1, '79000001', 'Apellido 1', 'Nombre 1', 1, '1945-01-10' ),
