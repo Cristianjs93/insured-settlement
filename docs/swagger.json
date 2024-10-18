@@ -1,0 +1,161 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/api": {
+      "get": {
+        "operationId": "AppController_healthCheck",
+        "summary": "Server healthcheck",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "example": "Web service is available"
+              }
+            }
+          }
+        },
+        "tags": [
+          "Healthcheck"
+        ]
+      }
+    },
+    "/api/settlement": {
+      "post": {
+        "operationId": "SettlementController_calculateSettlement",
+        "summary": "Creates a settlement for a specified customer",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SettlementReq"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Settlement created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SettlementRes"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Settlement"
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "Insured Settlement",
+    "description": "Settlement calculation for insured customers",
+    "version": "1",
+    "contact": {}
+  },
+  "tags": [],
+  "servers": [],
+  "components": {
+    "schemas": {
+      "SettlementReq": {
+        "type": "object",
+        "properties": {
+          "identificationType": {
+            "type": "number",
+            "description": "Customer identification type",
+            "example": 1
+          },
+          "identificationNumber": {
+            "type": "string",
+            "description": "Customer identification number",
+            "example": "79000001"
+          },
+          "insuredValue": {
+            "type": "number",
+            "description": "Base value for insurance calculation",
+            "example": 1000000
+          }
+        },
+        "required": [
+          "identificationType",
+          "identificationNumber",
+          "insuredValue"
+        ]
+      },
+      "SettlementDetail": {
+        "type": "object",
+        "properties": {
+          "protectionId": {
+            "type": "number",
+            "description": "ID of the protection",
+            "example": 1
+          },
+          "protectionName": {
+            "type": "string",
+            "description": "Name of the protection",
+            "example": "Muerte accidental"
+          },
+          "premiumValue": {
+            "type": "number",
+            "description": "Value of the premium",
+            "example": 100000
+          }
+        },
+        "required": [
+          "protectionId",
+          "protectionName",
+          "premiumValue"
+        ]
+      },
+      "SettlementRes": {
+        "type": "object",
+        "properties": {
+          "identificationType": {
+            "type": "number",
+            "description": "Customer identification type",
+            "example": 1
+          },
+          "identificationNumber": {
+            "type": "string",
+            "description": "Customer identification number",
+            "example": "79000001"
+          },
+          "insuredValue": {
+            "type": "number",
+            "description": "Base value for insurance calculation",
+            "example": 1000000
+          },
+          "settlement": {
+            "description": "List of settlements with protection and premium details",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SettlementDetail"
+            }
+          },
+          "totalValue": {
+            "type": "number",
+            "description": "Insurance total value",
+            "example": 100000
+          }
+        },
+        "required": [
+          "identificationType",
+          "identificationNumber",
+          "insuredValue",
+          "settlement",
+          "totalValue"
+        ]
+      }
+    }
+  }
+}

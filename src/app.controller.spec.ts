@@ -14,9 +14,13 @@ describe('AppController', () => {
     appController = app.get<AppController>(AppController);
   });
 
-  describe('root', () => {
-    it('should return "Hello World!"', () => {
-      expect(appController.getHello()).toBe('Hello World!');
+  it('should be defined', () => {
+    expect(appController).toBeDefined();
+  });
+
+  describe('Healthcheck', () => {
+    it('should return "Web service is available"', () => {
+      expect(appController.healthCheck()).toBe('Web service is available');
     });
   });
 });
