@@ -1,73 +1,83 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Insured Settlement 🚀
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Insured Settlement is a server application created with NestJS and documented with Swagger. Its implementation aims to calculate the insurance premium settlement based on the insured value provided by the client. The client's age determines the protections they are entitled to.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Features
 
-## Description
+- Calculate insurance premium settlements based on the insured value provided by the client.
+- Determine the entitlements to protections based on the client's age.
+- Comprehensive API documentation through Swagger for easy integration and understanding of endpoints.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Technologies Used
+
+- **TypeScript**: A typed superset of JavaScript that compiles to plain JavaScript.
+- **NestJS**: A progressive Node.js framework for building efficient and scalable server-side applications.
+- **Prisma**: An open-source database toolkit for TypeScript and Node.js.
+- **PostgreSQL**: realitonal database for storing data.
+- **Swagger**: API documentation and testing tool for RESTful services.
 
 ## Installation
 
-```bash
-$ npm install
-```
+1. Clone the repository:
 
-## Running the app
+   ```bash
+   git clone https://github.com/Cristianjs93/insured-settlement.git
+   ```
 
-```bash
-# development
-$ npm run start
+2. Navigate to the project directory:
 
-# watch mode
-$ npm run start:dev
+   ```bash
+   cd insured-settlement
+   ```
 
-# production mode
-$ npm run start:prod
-```
+3. Install the dependencies:
 
-## Test
+   ```bash
+   npm install
+   ```
 
-```bash
-# unit tests
-$ npm run test
+## Usage
 
-# e2e tests
-$ npm run test:e2e
+1. Run the application:
 
-# test coverage
-$ npm run test:cov
-```
+   ```bash
+   npm start
+   ```
 
-## Support
+2. The application will be running on:
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+   ```
+   http://localhost:3001/api
+   ```
 
-## Stay in touch
+3. Swagger documentation is available on:
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+   ```
+   http://localhost:3001/api/docs
+   ```
+
+4. You can find a SQL script in the `database` folder to create your database.
+
+## Environment
+
+Follow the `.env.example` file to add the required variables.
+
+## API Endpoints
+
+| Endpoint          | Method | Description                                | Request Body                                                                                | Response                                                                                                                               |
+| ----------------- | ------ | ------------------------------------------ | ------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| `/api`            | GET    | Server healthcheck.                        |                                                                                             | "Web service is available"                                                                                                             |
+| `/api/settlement` | POST   | Calculate the insurance premium settlement | `{ "identificationType": 1,  "identificationNumber": "79000002", "insuredValue": 1000000 }` | `{ "identificationType": 1, "identificationNumber": "79000002", "insuredValue": 1000000,  "settlements": [...], "totalValue": 20120 }` |
+
+## Screenshots
+
+![settlement-calculation](./public/assets/postman.png)
+_*Settlement calculation*_
+
+## Contributing
+
+If you would like to contribute to this project, please fork the repository and submit a pull request. Any contributions, whether improvements or bug fixes, are welcome!
 
 ## License
 
-Nest is [MIT licensed](LICENSE).
+This project is licensed under the MIT License.
