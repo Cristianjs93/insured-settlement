@@ -27,22 +27,6 @@ export class SettlementReq {
   insuredValue: number;
 }
 
-export class SettlementRes extends SettlementReq {
-  @ApiProperty({
-    description: 'List of settlements with protection and premium details',
-    type: () => [SettlementDetail],
-  })
-  settlements: SettlementDetail[];
-
-  @ApiProperty({
-    description: 'Insurance total value',
-    example: 100000,
-  })
-  @IsNumber()
-  @IsNotEmpty()
-  totalValue: number;
-}
-
 export class SettlementDetail {
   @ApiProperty({
     description: 'ID of the protection',
@@ -63,4 +47,20 @@ export class SettlementDetail {
   })
   @IsNumber()
   premiumValue: number;
+}
+
+export class SettlementRes extends SettlementReq {
+  @ApiProperty({
+    description: 'List of settlements with protection and premium details',
+    type: [SettlementDetail],
+  })
+  settlements: SettlementDetail[];
+
+  @ApiProperty({
+    description: 'Insurance total value',
+    example: 100000,
+  })
+  @IsNumber()
+  @IsNotEmpty()
+  totalValue: number;
 }

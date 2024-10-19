@@ -11,7 +11,6 @@ describe('HealthcheckController', () => {
       controllers: [HealthcheckController],
       providers: [HealthcheckService],
     }).compile();
-
     controller = app.get<HealthcheckController>(HealthcheckController);
     service = app.get<HealthcheckService>(HealthcheckService);
   });

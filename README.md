@@ -58,6 +58,14 @@ Insured Settlement is a server application created with NestJS and documented wi
 
 4. You can find a SQL script in the `database` folder to create your database.
 
+## Testing
+
+Unit tests were applied to controllers, services, and utility functions to ensure the functionality and correctness of the core logic. The tests are run using Jest, and can be executed with the following command:
+
+```bash
+npm run test
+```
+
 ## Environment
 
 Follow the `.env.example` file to add the required variables.
