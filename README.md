@@ -10,11 +10,12 @@ Insured Settlement is a server application created with NestJS and documented wi
 
 ## Technologies Used
 
-- **TypeScript**: A typed superset of JavaScript that compiles to plain JavaScript.
+- **TypeScript**: A typed superset of Javascript that compiles to plain Javascript.
 - **NestJS**: A progressive Node.js framework for building efficient and scalable server-side applications.
 - **Prisma**: An open-source database toolkit for TypeScript and Node.js.
-- **PostgreSQL**: realitonal database for storing data.
+- **PostgreSQL**: Relational database for storing data.
 - **Swagger**: API documentation and testing tool for RESTful services.
+- **Jest**: Javascript testing framework with a focus on simplicity.
 
 ## Installation
 
