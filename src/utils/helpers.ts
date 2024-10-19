@@ -1,5 +1,5 @@
 import { Insured, Premium, Protections } from '@prisma/client';
-import { SettlementDetail } from 'models/Settlement';
+import { SettlementDetail } from '@domain/models/Settlement';
 
 export const calculateCustomerAge = (customer: Insured) => {
   const currentYear = new Date().getFullYear();

@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
-export class AppService {
-  healthCheck() {
+export class HealthcheckService {
+  healthCheck(): string {
     return 'Web service is available';
   }
 }

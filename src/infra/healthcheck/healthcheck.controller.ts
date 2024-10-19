@@ -1,11 +1,11 @@
 import { Controller, Get } from '@nestjs/common';
-import { AppService } from './app.service';
+import { HealthcheckService } from './healthcheck.service';
 import { ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
 
 @Controller()
 @ApiTags('Healthcheck')
-export class AppController {
-  constructor(private readonly appService: AppService) {}
+export class HealthcheckController {
+  constructor(private readonly healthckeckService: HealthcheckService) {}
 
   @Get()
   @ApiOperation({
@@ -14,7 +14,7 @@ export class AppController {
   @ApiOkResponse({
     example: 'Web service is available',
   })
-  healthCheck() {
-    return this.appService.healthCheck();
+  healthCheck(): string {
+    return this.healthckeckService.healthCheck();
   }
 }

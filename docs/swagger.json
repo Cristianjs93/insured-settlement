@@ -3,7 +3,7 @@
   "paths": {
     "/api": {
       "get": {
-        "operationId": "AppController_healthCheck",
+        "operationId": "HealthcheckController_healthCheck",
         "summary": "Server healthcheck",
         "parameters": [],
         "responses": {

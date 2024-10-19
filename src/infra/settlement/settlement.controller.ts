@@ -6,7 +6,7 @@ import {
   Post,
 } from '@nestjs/common';
 import { SettlementService } from './settlement.service';
-import { SettlementReq, SettlementRes } from 'models/Settlement';
+import { SettlementReq, SettlementRes } from '@domain/models/Settlement';
 import { ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
 
 @Controller('settlement')

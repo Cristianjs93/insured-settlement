@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { Premium, Protections } from '@prisma/client';
 import { Prisma } from 'database/client';
-import { SettlementReq, SettlementRes } from 'models/Settlement';
+import { SettlementReq, SettlementRes } from '@domain/models/Settlement';
 import { errorValidation } from 'utils/errorValidation';
 import {
   calculateCustomerAge,
